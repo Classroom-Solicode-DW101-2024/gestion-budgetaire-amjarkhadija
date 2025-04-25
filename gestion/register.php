@@ -52,112 +52,30 @@ if (isset($_POST['submit'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/register.css">
+    <link rel="stylesheet" href="register.css">
     <title>Inscription</title>
-    <style>
-        
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f7fc;
-    margin: 0;
-    padding: 0;
-}
-
-.formContainer {
-    width: 100%;
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-    text-align: center;
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-input {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-input[type="text"], input[type="email"], input[type="password"] {
-    box-sizing: border-box;
-}
-
-input:focus {
-    border-color: #5c67f2;
-    outline: none;
-}
-
-button {
-    width: 100%;
-    padding: 12px;
-    background-color: #5c67f2;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 20px;
-}
-
-button:hover {
-    background-color: #4b54d8;
-}
-
-p {
-    color: #ff4d4d;
-    font-size: 14px;
-    margin: 5px 0;
-}
-
-a {
-    display: block;
-    text-align: center;
-    color: #5c67f2;
-    margin-top: 20px;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-    </style>
 </head>
 <body>
 
     <div class="formContainer">
         <h2>Inscrivez-vous maintenant</h2>
         <form method="post">
-
-            <input type="text" placeholder="Nom" name="nom" id="nom" value="<?php echo isset($nom) ? htmlspecialchars($nom) : ''; ?>">
+            <input type="text" placeholder="Nom" name="nom" value="<?php echo htmlspecialchars($nom ?? ''); ?>">
             <?php if (isset($errors['nom'])): ?>
                 <p><?php echo $errors['nom']; ?></p>
             <?php endif; ?>
 
-            <input type="email" placeholder="Email" name="email" id="email" value="<?php echo isset($email) ? htmlspecialchars($email) : ''; ?>">
+            <input type="email" placeholder="Email" name="email" value="<?php echo htmlspecialchars($email ?? ''); ?>">
             <?php if (isset($errors['email'])): ?>
                 <p><?php echo $errors['email']; ?></p>
             <?php endif; ?>
 
-            <input type="password" name="password" id="registerPassword" placeholder="Mot de passe" >
+            <input type="password" name="password" placeholder="Mot de passe">
             <?php if (isset($errors['password'])): ?>
                 <p><?php echo $errors['password']; ?></p>
             <?php endif; ?>
 
-            <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirmer le mot de passe">
+            <input type="password" name="confirm_password" placeholder="Confirmer le mot de passe">
             <?php if (isset($errors['confirm_password'])): ?>
                 <p><?php echo $errors['confirm_password']; ?></p>
             <?php endif; ?>
@@ -166,10 +84,10 @@ a:hover {
                 <p><?php echo $errors['passwordMatch']; ?></p>
             <?php endif; ?>
 
-            <button name="submit">S'inscrire</button>
+            <button type="submit" name="submit">S'inscrire</button>
         </form>
         <a href="login.php">Vous avez déjà un compte ? Se connecter</a>
     </div>
-    
+
 </body>
 </html>
