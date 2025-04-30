@@ -13,21 +13,21 @@ $categories = getCategories($pdo);
 $errors = [];
 $success = "";
 
-
+// delet
 if (isset($_GET['delete'])) {
     $id = (int)$_GET['delete'];
     deleteTransaction($pdo, $id, $userId);
     $success = "Transaction supprimée avec succès.";
 }
 
-
+// edit
 $editData = null;
 if (isset($_GET['edit'])) {
     $id = (int)$_GET['edit'];
     $editData = getTransactionById($pdo, $id, $userId);
 }
 
-
+// form
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $type = $_POST['type'];
     $nom = $_POST['nom'];
